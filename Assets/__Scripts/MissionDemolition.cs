@@ -20,8 +20,8 @@ public class MissionDemolition : MonoBehaviour
     static public MissionDemolition S; // a Singleton
                                        // fields set in the Unity Inspector pane
     public GameObject[] castles; // An array of the castles
-    public Text gtLevel; // The GT_Level GUIText
-    public Text gtScore; // The GT_Score GUIText
+    public Text UIText_Level; // The GT_Level GUIText
+    public Text UIText_Shots; // The GT_Score GUIText
     public Vector3 castlePos; // The place to put castles
     public bool _____________________________;
     // fields set dynamically
@@ -75,15 +75,15 @@ public class MissionDemolition : MonoBehaviour
     void UpdateGUI()
     {
         // Show the data in the GUITexts
-        gtLevel.text = "Level: " + (level + 1) + " of " + levelMax;
-        gtScore.text = "Shots Taken: " + shotsTaken;
+        UIText_Level.text = "Level: " + (level + 1) + " of " + levelMax;
+        UIText_Shots.text = "Shots Taken: " + shotsTaken;
     }
 
     void ShowGT()
     {
         // Show the data in the GUITexts
-        gtLevel.text = "Level: " + (level + 1) + " of " + levelMax;
-        gtScore.text = "Shots Taken: " + shotsTaken;
+        UIText_Level.text = "Level: " + (level + 1) + " of " + levelMax;
+        UIText_Shots.text = "Shots Taken: " + shotsTaken;
     }
     void Update()
     {
