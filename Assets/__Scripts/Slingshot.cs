@@ -1,35 +1,46 @@
-﻿using UnityEngine;
-using System.Collections;
-public class Slingshot : MonoBehaviour
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+// YOU must implement the Slingshot
+
+public class Slingshot : MonoBehaviour
 {
-    public GameObject launchPoint;// fields set in the Unity Inspector pane
+
+
+    // Place class variables here
+    // fields set in the Unity Inspector pane
     public GameObject prefabProjectile;
-    public float velocityMult = 4f;
     public bool _____________________________;
     // fields set dynamically
+    public GameObject launchPoint;
     public Vector3 launchPos;
     public GameObject projectile;
     public bool aimingMode;
+    public Rigidbody rb;
+    public float velocityMult = 4f;
+
+    static public Slingshot S;
+
 
     void Awake()
     {
+        // Set the Slingshot singleton S
+        S = this;
+
         Transform launchPointTrans = transform.Find("LaunchPoint");
         launchPoint = launchPointTrans.gameObject;
         launchPoint.SetActive(false);
         launchPos = launchPointTrans.position;
     }
-
-
-
     void OnMouseEnter()
     {
-        print("Slingshot:OnMouseEnter()");
+        //print("Slingshot:OnMouseEnter()");
         launchPoint.SetActive(true);
     }
     void OnMouseExit()
     {
-        print("Slingshot:OnMouseExit()");
+        //print("Slingshot:OnMouseExit()");
         launchPoint.SetActive(false);
     }
     void OnMouseDown()
@@ -41,8 +52,10 @@ public class Slingshot : MonoBehaviour
         // Start it at the launchPoint
         projectile.transform.position = launchPos;
         // Set it to isKinematic for now
-        projectile.GetComponent<Rigidbody>().isKinematic = true;
+        rb = projectile.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
     }
+
     void Update()
     {
         // If Slingshot is not in aimingMode, don't run this code
@@ -68,10 +81,14 @@ public class Slingshot : MonoBehaviour
         {
             // The mouse has been released
             aimingMode = false;
-            projectile.GetComponent<Rigidbody>().isKinematic = false;
-            projectile.GetComponent<Rigidbody>().velocity = -mouseDelta * velocityMult;
-            FollowCam.S.poi = projectile;
+            rb = projectile.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
+            rb.velocity = -mouseDelta * velocityMult;
+            FollowCam.poi = projectile;
             projectile = null;
+            MissionDemolition.ShotFired();
+
+
         }
     }
 
