@@ -193,8 +193,8 @@ GameObject:
   - component: {fileID: 282840813}
   - component: {fileID: 282840811}
   - component: {fileID: 282840812}
-  - component: {fileID: 282840815}
   - component: {fileID: 282840816}
+  - component: {fileID: 282840817}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081a589747e676f4897a70df1379ffaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easing: 0.05
+  minXY: {x: 0, y: 0}
   _____________________________: 0
   poi: {fileID: 0}
   camZ: 0
@@ -281,26 +283,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &282840815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282840810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d39fcb96d50fe40843e91db857df07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numClouds: 40
-  cloudPrefab: {fileID: 1642087982015080, guid: 0719eb94fbc8d064da664cc2b249d7cf,
-    type: 3}
-  cloudPosMin: {x: -50, y: -5, z: 10}
-  cloudPosMax: {x: 150, y: 100, z: 10}
-  cloudScaleMin: 1
-  cloudScaleMax: 3
-  cloudSpeedMult: 0.5
 --- !u!114 &282840816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +295,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b317f20814ccb9649ba3594c6d1c7998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &282840817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282840810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d39fcb96d50fe40843e91db857df07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numClouds: 40
+  cloudPrefabs:
+  - {fileID: 3911175038558770064, guid: f18c29c237fffbf4da726e6fad679eac, type: 3}
+  - {fileID: 6924033993032240701, guid: 6eb08e04f964a9746bf0907ee598c171, type: 3}
+  - {fileID: 3476657376470825953, guid: 316cce92832fbe94787dbbb25ae6128e, type: 3}
+  - {fileID: 3767028402036666024, guid: f51cf7cf911f56e4bb3c852868e546cf, type: 3}
+  - {fileID: 3458306403492698551, guid: c5d69ba16391df14d866d8e3f1d7188c, type: 3}
+  cloudPosMin: {x: -50, y: -5, z: 10}
+  cloudPosMax: {x: 150, y: 100, z: 10}
+  cloudScaleMin: 1
+  cloudScaleMax: 5
+  cloudSpeedMult: 0.5
+  _____________________________: 0
+  cloudInstances: []
 --- !u!1 &316562691
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +996,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b81d78f5487c154aa1b106743e06e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   minDist: 0.1
   line: {fileID: 0}
   _poi: {fileID: 0}
@@ -1409,7 +1437,7 @@ Transform:
   m_GameObject: {fileID: 1815117305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 100, y: -10, z: 0}
-  m_LocalScale: {x: 400, y: 1, z: 4}
+  m_LocalScale: {x: 400, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1478,7 +1506,7 @@ MonoBehaviour:
   launchPoint: {fileID: 0}
   prefabProjectile: {fileID: 1719994583987584, guid: 2a333ea087665aa45a207cf79860b396,
     type: 3}
-  velocityMult: 4
+  velocityMult: 8
   _____________________________: 0
   launchPos: {x: 0, y: 0, z: 0}
   projectile: {fileID: 0}
